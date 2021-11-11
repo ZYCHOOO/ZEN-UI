@@ -1,7 +1,7 @@
 <template>
   <div class="code-editor">
     <div>
-      <editor
+      <z-editor
         v-model="content"
         placeholder="请输入内容"
       />
@@ -13,7 +13,7 @@
 export default {
   name: 'Editor1-1',
   components: {
-    Editor: () => import('../../../../plugins/components/editor/Editor')
+    ZEditor: () => import('../../../../plugins/components/editor/Editor')
   },
   data() {
     return {

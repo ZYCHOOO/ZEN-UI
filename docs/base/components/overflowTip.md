@@ -5,7 +5,7 @@
 ---
 
 <common-CodeBox title="基本用法">
-  <code-overflowTooltip1-1 />
+  <code-overflowTip1-1 />
   <highlight-code slot="codeText" lang="vue">
     <template>
       <div class="demo-overflow-tooltip">
@@ -29,7 +29,7 @@
 </common-CodeBox>
 
 <common-CodeBox title="主题">
-  <code-overflowTooltip1-2 />
+  <code-overflowTip1-2 />
   <highlight-code slot="codeText" lang="vue">
     <template>
       <div class="demo-overflow-tooltip">
@@ -48,7 +48,7 @@
 </common-CodeBox>
 
 <common-CodeBox title="多行省略">
-  <code-overflowTooltip1-3 />
+  <code-overflowTip1-3 />
   <highlight-code slot="codeText" lang="vue">
     <template>
       <div class="demo-overflow-tooltip">

@@ -27,10 +27,10 @@ module.exports = {
           title: '常用组件',
           collapsable: false, // 是否设置为可展开，false-不可点击
           children: [
-            // 'components/icon',
             'components/button',
             'components/select',
-            'components/overflowTooltip',
+            'components/cascader',
+            'components/overflowTip',
             'components/editor'
           ]
         },

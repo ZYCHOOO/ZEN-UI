@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="bmsk-editor">
+  <div class="z-editor">
     <div class="editor-bar">
       <div ref="toolbar" class="toolbar" />
       <div ref="editor" class="text" :style="{height: contentHeight}" />
@@ -234,7 +234,7 @@ export default {
 </script>
 
 <style lang="scss">
-.bmsk-editor {
+.z-editor {
   position: relative;
 }
 .editor-bar {

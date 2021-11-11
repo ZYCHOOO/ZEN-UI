@@ -2,14 +2,14 @@
   <div class="code-overflow-tooltip">
     <div>
       <!-- 超长省略2行 -->
-      <overflow-tooltip
+      <z-overflow-tip
         :content="text1"
         :item-style="longMultipleStyle"
         :line="2"
         overflow-multiple
       />
       <!-- 超长省略4行 -->
-      <overflow-tooltip
+      <z-overflow-tip
         :content="text2"
         :item-style="longMultipleStyle"
         :line="4"
@@ -21,9 +21,9 @@
 
 <script>
 export default {
-  name: 'OverflowTooltip1-3',
+  name: 'OverflowTip1-3',
   components: {
-    OverflowTooltip: () => import('../../../../plugins/components/overflow-tooltip/OverflowTooltip')
+    ZOverflowTip: () => import('../../../../plugins/components/overflow-tip/OverflowTip')
   },
   data() {
     return {

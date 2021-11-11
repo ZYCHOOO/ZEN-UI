@@ -31,7 +31,10 @@
   "keywords": [
     "返回顶部",
     "富文本编辑器",
-    "echarts"
+    "echarts",
+    "下拉框",
+    "级联选择器",
+    "省略提示"
   ],
   "main": "dist/zen-ui.umd.min.js",
   "devDependencies": {

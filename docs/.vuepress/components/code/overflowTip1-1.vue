@@ -2,17 +2,17 @@
   <div class="demo-overflow-tooltip">
     <div>
       <!-- 简短文字 -->
-      <overflow-tooltip
+      <z-overflow-tip
         :content="text1"
         :item-style="shortStyle"
       />
       <!-- 超长省略 -->
-      <overflow-tooltip
+      <z-overflow-tip
         :content="text2"
         :item-style="longSingleStyle"
       />
       <!-- 超长省略2行 -->
-      <overflow-tooltip
+      <z-overflow-tip
         :content="text3"
         :item-style="longMultipleStyle"
         :line="2"
@@ -24,9 +24,9 @@
 
 <script>
 export default {
-  name: 'OverflowTooltip1-1',
+  name: 'OverflowTip1-1',
   components: {
-    OverflowTooltip: () => import('../../../../plugins/components/overflow-tooltip/OverflowTooltip')
+    ZOverflowTip: () => import('../../../../plugins/components/overflow-tip/OverflowTip')
   },
   data() {
     return {

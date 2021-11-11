@@ -1,10 +1,12 @@
 // 组件
 import ScrollToTop from './components/scroll-to-top/ScrollToTop'
 import Editor from './components/editor/Editor'
-import OverflowTooltip from './components/overflow-tooltip/OverflowTooltip'
+import OverflowTip from './components/overflow-tip/OverflowTip'
+import Select from './components/select/Select'
+import Cascader from './components/cascader/Cascader'
 
 // 组件列表
-const components = [ScrollToTop, Editor, OverflowTooltip]
+const components = [ScrollToTop, Editor, OverflowTip, Select, Cascader]
 
 // 定义install方法，Vue作为参数
 const install = Vue => {

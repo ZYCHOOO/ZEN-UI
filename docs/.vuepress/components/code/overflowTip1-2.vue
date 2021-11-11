@@ -1,11 +1,11 @@
 <template>
   <div class="code-overflow-tooltip">
     <div>
-      <overflow-tooltip
+      <z-overflow-tip
         :content="text2"
         :item-style="longSingleStyle"
       />
-      <overflow-tooltip
+      <z-overflow-tip
         :content="text2"
         :item-style="longSingleStyle"
         effect="light"
@@ -16,9 +16,9 @@
 
 <script>
 export default {
-  name: 'OverflowTooltip1-2',
+  name: 'OverflowTip1-2',
   components: {
-    OverflowTooltip: () => import('../../../../plugins/components/overflow-tooltip/OverflowTooltip')
+    ZOverflowTip: () => import('../../../../plugins/components/overflow-tip/OverflowTip')
   },
   data() {
     return {
