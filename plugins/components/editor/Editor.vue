@@ -54,7 +54,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '请输入正文'
     },
     max: {
       type: Number,

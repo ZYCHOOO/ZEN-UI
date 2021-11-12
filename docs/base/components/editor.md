@@ -11,7 +11,6 @@
       <div class="demo-editor">
         <z-editor
           v-model="content"
-          placeholder="请输入正文"
         />
       </div>
     </template>
@@ -26,7 +25,6 @@
         <z-editor
           v-model="content"
           :max="3000"
-          placeholder="请输入正文"
           show-word-limit
         />
       </div>
@@ -42,7 +40,7 @@
       return {
         tableData: [
           { param: 'v-model', desc: '绑定值', type: 'String/Number', optionValue: '', defaultValue: '' },
-          { param: 'placeholder', desc: '输入框占位文本', type: 'String', optionValue: '', defaultValue: '' },
+          { param: 'placeholder', desc: '输入框占位文本', type: 'String', optionValue: '', defaultValue: '请输入正文' },
           { param: 'max', desc: '最大字数限制', type: 'Number', optionValue: '', defaultValue: '' },
           { param: 'showWordLimit', desc: '是否显示当前字数', type: 'Boolean', optionValue: '', defaultValue: 'false' },
           { param: 'action', desc: '上传的地址', type: 'String', optionValue: '', defaultValue: '' },

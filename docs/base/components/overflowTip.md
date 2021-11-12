@@ -28,7 +28,7 @@
   </highlight-code>
 </common-CodeBox>
 
-<common-CodeBox title="主题">
+<common-CodeBox title="主题" description="OverflowTip 组件提供了两个不同的主题：dark 和 light">
   <code-overflowTip1-2 />
   <highlight-code slot="codeText" lang="vue">
     <template>
@@ -47,7 +47,7 @@
   </highlight-code>
 </common-CodeBox>
 
-<common-CodeBox title="多行省略">
+<common-CodeBox title="多行省略" description="通过overflow-multiple 和 line 字段来设置在第n行显示省略号">
   <code-overflowTip1-3 />
   <highlight-code slot="codeText" lang="vue">
     <template>

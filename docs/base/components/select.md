@@ -26,7 +26,7 @@
   </highlight-code>
 </common-CodeBox>
 
-<common-CodeBox title="包含全选选项">
+<common-CodeBox title="包含全选选项" description="通过在数据源中设置all-options 字段来声明是否包含全选选项">
   <code-select1-2 />
   <highlight-code slot="codeText" lang="vue">
     <template>
@@ -43,7 +43,7 @@
   </highlight-code>
 </common-CodeBox>
 
-<common-CodeBox title="禁用">
+<common-CodeBox title="禁用" description="通过在数据源中设置 disabled 字段来声明该选项是禁用的">
   <code-select1-3 />
   <highlight-code slot="codeText" lang="vue">
     <template>

@@ -6,6 +6,8 @@
     :props="props"
     :clearable="clearable"
     :placeholder="placeholder"
+    :show-all-levels="showAllLevels"
+    :disabled="disabled"
     popper-class="selectArea"
     @change="selectChange"
   />
@@ -34,15 +36,29 @@ export default {
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '请选择'
     },
     allOptions: {
+      type: Boolean,
+      default: false
+    },
+    showAllLevels: {
       type: Boolean,
       default: false
     },
     disabled: {
       type: Boolean,
       default: false
+    },
+    attrs: {
+      type: Object,
+      default: () => {
+        return {
+          value: 'value',
+          label: 'label',
+          children: 'children'
+        }
+      }
     }
   },
   watch: {
@@ -57,11 +73,7 @@ export default {
   },
   computed: {
     trueOptions() {
-      const options = this.options.map(item => ({
-        value: item.value,
-        label: item.label,
-        children: this.formatOptions(item.extCustomTypes)
-      }))
+      const options = this.formatOptions(this.options)
       if (options.length > 0) {
         return this.allOptions
           ? [
@@ -83,8 +95,10 @@ export default {
     formatOptions(arr) {
       return arr
         ? arr.map(item => ({
-          value: item.id,
-          label: item.name
+            value: item[this.attrs.value],
+            label: item[this.attrs.label],
+            children: item[this.attrs.children]
+              ? this.formatOptions(item[this.attrs.children]) : null
         })) : []
     }
   }

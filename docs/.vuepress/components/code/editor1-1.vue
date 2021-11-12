@@ -3,7 +3,6 @@
     <div>
       <z-editor
         v-model="content"
-        placeholder="请输入内容"
       />
     </div>
   </div>

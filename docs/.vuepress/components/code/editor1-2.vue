@@ -4,7 +4,6 @@
       <z-editor
         v-model="content"
         :max="1800"
-        placeholder="请输入内容"
         show-word-limit
       />
     </div>
