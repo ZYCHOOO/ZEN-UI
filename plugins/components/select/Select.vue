@@ -23,7 +23,7 @@ export default {
   name: 'Select',
   props: {
     value: {
-      type: [String, Number, Array, Boolean],
+      type: [String, Number, Boolean],
       default: ''
     },
     // 选项列表

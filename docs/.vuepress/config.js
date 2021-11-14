@@ -34,6 +34,11 @@ module.exports = {
             'components/editor'
           ]
         },
+        {
+          title: '业务组件',
+          collapsable: false, // 是否设置为可展开，false-不可点击
+          children: []
+        }
       ],
       '/knowledge/': [
         {

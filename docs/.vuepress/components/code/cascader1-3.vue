@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      value: '',
+      value: [],
       options: [
         { value: 1, label: '广州市', children: [
           { value: 11, label: '荔湾区' },

@@ -60,12 +60,23 @@
   </highlight-code>
 </common-CodeBox>
 
+<common-AttrTable :table-data="tableData" />
+
 <script>
   export default {
     data() {
       return {
         tableData: [
-          { param: '', desc: '', type: '', optionValue: '', defaultValue: '' }
+          { param: 'v-model/value', desc: '绑定值', type: 'String/Number/Boolean', optionValue: '', defaultValue: '' },
+          { param: 'list', desc: '选项数组', type: 'Array', optionValue: '', defaultValue: '' },
+          { param: 'listKey', desc: 'store的计算属性', type: 'String', optionValue: '', defaultValue: '' },
+          { param: 'multiple', desc: '是否多选', type: 'Boolean', optionValue: '', defaultValue: 'false' },
+          { param: 'allOptions', desc: '是否包含全选选项', type: 'Boolean', optionValue: '', defaultValue: 'false' },
+          { param: 'collapseTags', desc: '多选时是否将选中值按文字的形式展示', type: 'Boolean', optionValue: '', defaultValue: 'false' },
+          { param: 'clearable', desc: '是否支持清空选项', type: 'Boolean', optionValue: '', defaultValue: 'false' },
+          { param: 'filterable', desc: '是否可搜索', type: 'Boolean', optionValue: '', defaultValue: 'false' },
+          { param: 'placeholder', desc: '占位符', type: 'String', optionValue: '', defaultValue: '请选择' },
+          { param: 'disabled', desc: '是否禁用', type: 'Boolean', optionValue: '', defaultValue: 'false' }
         ]
       }
     }
