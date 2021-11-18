@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-  name: 'Select',
+  name: 'ZSelect',
   props: {
     value: {
       type: [String, Number, Boolean],

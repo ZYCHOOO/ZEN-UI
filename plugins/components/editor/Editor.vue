@@ -17,7 +17,7 @@ import Wangeditor from 'wangeditor'
 import EditorMixin from './EditorMixin'
 import * as utils from './utils'
 export default {
-  name: 'Editor',
+  name: 'ZEditor',
   mixins: [EditorMixin],
   components: {
     ShowWordLimit: () => import('./ShowWordLimit')

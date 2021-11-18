@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'Cascader',
+  name: 'ZCascader',
   props: {
     value: {
       type: [String, Number, Array, Boolean],

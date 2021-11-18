@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'ScrollToTop',
+  name: 'ZScrollToTop',
   props: {
     imgSrc: {
       type: String,

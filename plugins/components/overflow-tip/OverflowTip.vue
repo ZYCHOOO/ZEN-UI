@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'OverflowTip',
+  name: 'ZOverflowTip',
   props: {
     content: { type: String, default: '', required: true },
     itemStyle: { type: Object, default: () => {}, required: true },
