@@ -260,7 +260,9 @@ export default {
   .w-e-text {
     min-height: 300px;
     overflow-y: auto;
-    // resize: vertical;
+  }
+  .w-e-table-input {
+    margin-top: 8px;
   }
   /* table 样式 */
   table {
