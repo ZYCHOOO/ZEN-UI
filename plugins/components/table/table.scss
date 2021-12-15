@@ -1,0 +1,92 @@
+.z-table {
+  &__header {
+    margin-bottom: 6px;
+    display: flex;
+    .el-button {
+      margin-bottom: 10px;
+    }
+  }
+  &__body {
+    .el-table td,
+    .el-table th.is-leaf {
+      border: none;
+      .el-table__column-filter-trigger {
+        line-height: 25px;
+      }
+    }
+  
+    .el-table__body-wrapper {
+      td {
+        border-bottom: none;
+      }
+    }
+    .el-table::before {
+      width: 0;
+      height: 0;
+    }
+  
+    .el-table--border {
+      border: none;
+      &::after {
+        width: 0;
+      }
+    }
+    // 列表头
+    .el-table th {
+      .cell {
+        display: flex;
+      }
+    }
+    // 操作列
+    .table-operation {
+      .el-button.is-plain {
+        padding: 4px 10px;
+        border: none;
+        height: 28px;
+        font: normal 400 14px PingFangSC-Regular, PingFang SC;
+      }
+      .el-button--primary.is-plain {
+        background: rgba(70, 133, 255, 0.1);
+        &:hover {
+          background: rgba(70, 133, 255, 0.2);
+        }
+        &:active,
+        &:focus {
+          background: rgba(70, 133, 255, 0.3);
+        }
+      }
+      .el-button--danger.is-plain {
+        background: rgba(251, 58, 57, 0.1);
+        &:hover {
+          background: rgba(251, 58, 57, 0.2);
+        }
+        &:active,
+        &:focus {
+          background: rgba(251, 58, 57, 0.3);
+        }
+      }
+      .el-button--warning.is-plain {
+        background: rgba(244, 129, 46, 0.1);
+        &:hover {
+          background: rgba(244, 129, 46, 0.2);
+        }
+        &:active,
+        &:focus {
+          background: rgba(244, 129, 46, 0.3);
+        }
+      }
+      .el-button--primary.is-plain.is-disabled  {
+        color: #9B9EA7;
+        background: rgba(155, 158, 167, 0.2);
+        &:hover, &:focus, &:active {
+          background: rgba(155, 158, 167, 0.2);
+        }
+      }
+    }
+    .pagination-bg {
+      margin-top: 15px;
+      height: 50px;
+      background: #FFF;
+    }
+  }
+}

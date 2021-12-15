@@ -4,6 +4,7 @@ module.exports = {
   description: '用于后台管理系统的组件库', //描述
   dest: './dist',   // 设置输出目录
   port: 2233, //端口
+  plugins: ['demo-container'],
   themeConfig: { //主题配置
     // 添加导航栏
     nav: [
@@ -37,7 +38,10 @@ module.exports = {
         {
           title: '业务组件',
           collapsable: false, // 是否设置为可展开，false-不可点击
-          children: []
+          children: [
+            'businessComponents/table',
+            'businessComponents/dataPicker'
+          ]
         }
       ],
       '/knowledge/': [
