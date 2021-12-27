@@ -10,6 +10,8 @@
         ref="table"
         v-loading="loading"
         :data="data"
+        :lazy="lazy"
+        :load="load"
         :stripe="stripe"
         :border="border"
         :height="height"
@@ -79,6 +81,7 @@ export default {
     defaultThemeColor: { type: String, default: 'rgb(246, 249, 255)' },
     activeThemeColor: { type: String, default: 'rgb(232, 241, 254)' },
     loading: { type: Boolean, default: false },
+    lazy: { type: Boolean, default: false },
     stripe: { type: Boolean, default: false },
     border: { type: Boolean, default: false },
     showIndex: { type: Boolean, default: false },
@@ -98,7 +101,7 @@ export default {
     headerRowClassName: { type: [Function, String], default: null },
     headerRowStyle: { type: [Function, Object], default: null },
     headerCellClassName: { type: [Function, String], default: null },
-    headerCellStyle: { type: [Function, Object], default: ()=> {
+    headerCellStyle: { type: [Function, Object], default: () => {
       return {
         color: '#3B414F',
         fontWeight: 'bold'
@@ -137,6 +140,9 @@ export default {
     },
     filterChange(filters) {
       this.$emit('filterChange', filters)
+    },
+    load(tree, treeNode, resolve) {
+      this.$emit('load', tree, treeNode, resolve)
     },
     clearSelection() {
       this.$refs.table.clearSelection()
