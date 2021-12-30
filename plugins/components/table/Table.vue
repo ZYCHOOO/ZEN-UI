@@ -21,7 +21,7 @@
         :cell-class-name="cellClassName"
         :header-row-style="headerRowStyle"
         :header-row-class-name="headerRowClassName"
-        :header-cell-style="headerStyle"
+        :header-cell-style="headerCellStyle"
         :header-cell-class-name="headerCellClassName"
         :default-expand-all="defaultExpandAll"
         @selection-change="selectionChange"
@@ -29,6 +29,12 @@
         @header-dragend="headerDragend"
         @header-click="headerClick"
       >
+        <template slot="empty">
+          <div class="z-table__empty flex-column flex-center">
+            <img :src="emptyImg" class="no-data-image" :alt="emptyText" />
+            <span class="no-data-text">{{ emptyText }}</span>
+          </div>
+        </template>
         <!-- 是否有多选 -->
         <el-table-column v-if="showSelection" type="selection" width="50" />
         <!-- 是否有序号 -->
@@ -54,7 +60,7 @@
       </el-table>
       <div class="pagination-bg" />
       <!-- 页码选择器 -->
-      <div v-if="pagination" class="z-table__footer">
+      <div v-if="pagination && !$slots['pagination-box']" class="bm-table__footer">
         <el-pagination
           background
           :current-page="pagination.page"
@@ -67,7 +73,9 @@
           @current-change="changePage"
         />
       </div>
-      <slot name="pagination" />
+      <div v-if="$slots['pagination-box']" class="bm-table__footer">
+        <slot name="pagination-box" />
+      </div>
     </div>
   </div>
 </template>
@@ -90,62 +98,58 @@ export default {
     data: { type: Array, default: () => [], required: true },
     columns: { type: Array, default: () => [], required: true },
     pagination: { type: Object, default: () => {} },
-    treeProps: { type: Object, default: () => {
-      return {
-        hasChildren: 'hasChildren',
-        children: 'children'
-      }
-    } },
     cellClassName: { type: [Function, String], default: null },
     cellStyle: { type: [Function, Object], default: null },
     headerRowClassName: { type: [Function, String], default: null },
     headerRowStyle: { type: [Function, Object], default: null },
     headerCellClassName: { type: [Function, String], default: null },
-    headerCellStyle: { type: [Function, Object], default: () => {
-      return {
-        color: '#3B414F',
-        fontWeight: 'bold'
+    headerCellStyle: { type: [Function, Object], default: null },
+    emptyImage: { type: String, default: null },
+    emptyText: { type: String, default: '暂无数据' },
+    treeProps: {
+      type: Object,
+      default: () => {
+        return {
+          hasChildren: 'hasChildren',
+          children: 'children'
+        }
       }
-    } },
-    // eslint-disable-next-line no-unused-vars
-    formatter: { type: Function, default: (row, column, cellValue, index) => {
-      const rowKey = column.property
-      return row[rowKey] || '--'
-    }
+    },
+    formatter: {
+      type: Function,
+      // eslint-disable-next-line no-unused-vars
+      default: (row, column, cellValue, index) => {
+        const rowKey = column.property
+        return row[rowKey] || '--'
+      }
     }
   },
   computed: {
-    headerStyle() {
-      let style = {}
-      if (this.defaultThemeColor && !this.headerCellStyle.background) {
-        style = {
-          ...this.headerCellStyle,
-          background: this.defaultThemeColor
-        }
-      } else {
-        style = { ...this.headerCellStyle }
-      }
-      return style
+    emptyImg() {
+      return this.emptyImage || require('@/icons/no-data.png')
     }
   },
   methods: {
-    changePage(page) {
-      this.$emit('changePage', page)
+   changePage(page) {
+      this.$emit('page-change', page)
     },
     changeLimit(limit) {
-      this.$emit('changeLimit', limit)
+      this.$emit('limit-change', limit)
     },
     selectionChange(selection) {
-      this.$emit('selectionChange', selection)
+      this.$emit('selection-change', selection)
     },
     filterChange(filters) {
-      this.$emit('filterChange', filters)
+      this.$emit('filter-change', filters)
     },
     load(tree, treeNode, resolve) {
       this.$emit('load', tree, treeNode, resolve)
     },
     clearSelection() {
       this.$refs.table.clearSelection()
+    },
+    clearFilter() {
+      this.$refs.table.clearFilter()
     },
     doLayout() {
       this.$refs.table.doLayout()
@@ -155,7 +159,7 @@ export default {
       const className = column.id
       // 只取第一行，则表头
       const selectClass = document.getElementsByClassName(className)[0]
-      selectClass.style.backgroundColor = 'rgb(246, 249, 255)'
+      selectClass.style.backgroundColor = this.defaultThemeColor
       if (nw - ow < 0) {
         this.dragBool = true
       }
@@ -170,10 +174,10 @@ export default {
       // 只取第一行，则表头
       const selectClass = document.getElementsByClassName(className)[0]
       // 两次点击取消样式
-      if (selectClass.style.backgroundColor !== 'rgb(232, 241, 254)') {
-        selectClass.style.backgroundColor = 'rgb(232, 241, 254)'
+      if (selectClass.style.backgroundColor !== this.activeThemeColor) {
+        selectClass.style.backgroundColor = this.activeThemeColor
       } else {
-        selectClass.style.backgroundColor = 'rgb(246, 249, 255)'
+        selectClass.style.backgroundColor = this.defaultThemeColor
       }
     }
   }
